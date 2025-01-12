@@ -38,8 +38,8 @@ public class CustomOAuth2UserService  extends DefaultOAuth2UserService {
 
             oAuth2Response = new GoogleResponse(oAuth2User.getAttributes());
         }
-        else {
-            return null;
+        else if (registrationId.equals("nms")){
+            oAuth2Response = new MicthebickResponse(oAuth2User.getAttributes());
         }
 
         String username = oAuth2Response.getProvider()+" "+oAuth2Response.getProviderId();
